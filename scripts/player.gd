@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
-
+const QUEDA_LIMITE: float = 300.0
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 @onready var anima: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
 
+func morrer() -> void:
+	# Reinicia a fase atual
+	set_physics_process(false)
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -30,6 +34,10 @@ func _physics_process(delta: float) -> void:
 			anima.play("idle")
 	else:
 		anima.play("jump")
+		if direction > 0:
+			anima.flip_h = false
+		elif direction < 0:
+			anima.flip_h = true
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -37,3 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	if global_position.y > QUEDA_LIMITE:
+		morrer()
