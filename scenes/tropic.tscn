@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4o82hbg03tjt" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="4_o55n4"]
 [ext_resource type="Texture2D" uid="uid://4gvaq16xsruq" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="5_e4l1y"]
 [ext_resource type="Texture2D" uid="uid://dotjdlm5dc7u5" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/4 - Background_clouds.png" id="6_2v5ri"]
+[ext_resource type="PackedScene" uid="uid://bff02thgnb0ib" path="res://entities/camera_2d.tscn" id="9_wyuaa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5nw8c"]
 animations = [{
@@ -24,6 +25,8 @@ animations = [{
 }]
 
 [node name="tropic" type="Node2D" unique_id=650670839]
+metadata/_edit_vertical_guides_ = [848.0]
+metadata/_edit_horizontal_guides_ = [209.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=700525888]
 
@@ -67,7 +70,7 @@ motion_mirroring = Vector2(288, 0)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/2" unique_id=1800398378]
 sprite_frames = SubResource("SpriteFrames_5nw8c")
 autoplay = "default"
-frame_progress = 0.27936202
+frame_progress = 0.18747102
 centered = false
 
 [node name="decoration" type="TileMapLayer" parent="." unique_id=966069151]
@@ -78,5 +81,11 @@ tile_set = ExtResource("1_mtmls")
 tile_map_data = PackedByteArray("AAAAAAsABgABAAMAAAAAAAwABgADAAUAAAABAAsABgAHAAMAAAABAAwABgAFAAMAAAACAAwABgACAAMAAAACAA0ABgACAAQAAAABAA0ABgAEAAYAAAAAAA0ABgADAAYAAAADAAwABgAEAAEAAAAEAAwABgAEAAEAAAAFAAwABgAEAAEAAAAGAAwABgAHAAMAAAAJAAwABgABAAMAAAAKAAwABgACAAMAAAALAAwABgACAAMAAAAMAAwABgACAAMAAAANAAwABgAHAAMAAAAPAAwABgADAAEAAAAQAAwABgAEAAEAAAARAAwABgAEAAEAAAASAAwABgAFAAEAAAAUAAsAAAADAAEAAAAUAAwAAAADAAIAAAAVAAsAAAAEAAEAAAAVAAwAAAAEAAIAAAAWAAsAAAAFAAEAAAAWAAwAAAAFAAIAAAAZAAsAAAADAAEAAAAZAAwAAAADAAIAAAAaAAsAAAAEAAEAAAAaAAwAAAAEAAIAAAAbAAsAAAAFAAEAAAAbAAwAAAAFAAIAAAAeAAsAAAADAAEAAAAeAAwAAAADAAIAAAAfAAsAAAAEAAEAAAAfAAwAAAAEAAIAAAAgAAsAAAAFAAEAAAAgAAwAAAAFAAIAAAAkAAsAAAADAAEAAAAkAAwAAAADAAIAAAAlAAsAAAAEAAEAAAAlAAwAAAAEAAIAAAAmAAsAAAAFAAEAAAAmAAwAAAAFAAIAAAAhAAsAAAADAAEAAAAhAAwAAAADAAIAAAAiAAsAAAAEAAEAAAAiAAwAAAAEAAIAAAAjAAsAAAAFAAEAAAAjAAwAAAAFAAIAAAAoAAsAAAADAAEAAAAoAAwAAAADAAIAAAApAAsAAAAEAAEAAAApAAwAAAAEAAIAAAAqAAsAAAAFAAEAAAAqAAwAAAAFAAIAAAAFAAoABgAJAAMAAAAGAAoABgAKAAMAAAAHAAoABgAKAAMAAAAIAAoABgAKAAMAAAAJAAoABgAKAAMAAAAKAAoABgANAAMAAAAIAAcABgAJAAMAAAAJAAcABgAKAAMAAAAKAAcABgAKAAMAAAALAAcABgAKAAMAAAAMAAcABgAKAAMAAAANAAcABgANAAMAAAAKAAQABgAJAAMAAAALAAQABgAKAAMAAAAMAAQABgAKAAMAAAANAAQABgAKAAMAAAAOAAQABgAKAAMAAAAPAAQABgANAAMAAAANAAEABgAJAAMAAAAOAAEABgAKAAMAAAAPAAEABgAKAAMAAAAQAAEABgAKAAMAAAARAAEABgAKAAMAAAASAAEABgANAAMAAAARAP7/BgAJAAMAAAASAP7/BgAKAAMAAAATAP7/BgAKAAMAAAAUAP7/BgAKAAMAAAAVAP7/BgAKAAMAAAAWAP7/BgANAAMAAAAJAPz/BgAJAAMAAAAKAPz/BgAKAAMAAAALAPz/BgAKAAMAAAAMAPz/BgAKAAMAAAANAPz/BgAKAAMAAAAOAPz/BgANAAMAAAA=")
 tile_set = ExtResource("1_j8cmn")
 
-[node name="Player" parent="." unique_id=2130780701 instance=ExtResource("2_mtmls")]
+[node name="Player" parent="." unique_id=2130780701 groups=["player"] instance=ExtResource("2_mtmls")]
 position = Vector2(20, 167)
+
+[node name="Camera2D" parent="." unique_id=86488589 instance=ExtResource("9_wyuaa")]
+limit_left = 0
+limit_top = -100
+limit_right = 850
+limit_bottom = 207

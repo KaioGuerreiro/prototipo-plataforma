@@ -117,11 +117,7 @@ script = ExtResource("1_merdl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=576001289]
 shape = SubResource("CapsuleShape2D_5nw8c")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=2042485633]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2042485633]
 sprite_frames = SubResource("SpriteFrames_ravjw")
 animation = &"jump"
 autoplay = "idle"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1739489826]
-limit_bottom = 208
-position_smoothing_enabled = true

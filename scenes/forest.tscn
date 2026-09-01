@@ -8,8 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bxpe1srv538ys" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="4_i1yi8"]
 [ext_resource type="Texture2D" uid="uid://ecih5sgsws3o" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="5_i1yi8"]
 [ext_resource type="Texture2D" uid="uid://xhn6gihnuvxi" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="6_qm7rg"]
+[ext_resource type="PackedScene" uid="uid://bff02thgnb0ib" path="res://entities/camera_2d.tscn" id="8_0nboi"]
+[ext_resource type="PackedScene" uid="uid://k4oqo5io0xsf" path="res://entities/level_end.tscn" id="10_3knxq"]
+[ext_resource type="TileSet" uid="uid://4cpcvsp8nix7" path="res://tiles/decoration.tres" id="11_ercsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ercsu"]
+size = Vector2(20, 38)
 
 [node name="forest" type="Node2D" unique_id=743563310]
+metadata/_edit_horizontal_guides_ = [205.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=621407471]
 
@@ -82,5 +89,24 @@ region_rect = Rect2(0, 0, 576, 208)
 tile_map_data = PackedByteArray("AAAAAAsAAQABAAMAAAAAAAwAAQABAAQAAAABAAsAAQACAAMAAAABAAwAAQACAAQAAAACAAsAAQACAAMAAAACAAwAAQACAAQAAAADAAsAAQACAAMAAAADAAwAAQACAAQAAAAEAAsAAQACAAMAAAAEAAwAAQACAAQAAAAFAAsAAQACAAMAAAAFAAwAAQACAAQAAAAGAAsAAQACAAMAAAAGAAwAAQACAAQAAAAHAAsAAQACAAMAAAAHAAwAAQACAAQAAAAIAAsAAQACAAMAAAAIAAwAAQACAAQAAAAJAAsAAQACAAMAAAAJAAwAAQACAAQAAAAKAAsAAQACAAMAAAAKAAwAAQACAAQAAAALAAsAAQACAAMAAAALAAwAAQACAAQAAAAMAAsAAQACAAMAAAAMAAwAAQACAAQAAAANAAsAAQAHAAMAAAANAAwAAQAHAAQAAAAOAAwAAQADAAEAAAAOAA0AAQADAAIAAAAPAAwAAQAEAAEAAAAPAA0AAQAEAAIAAAAQAAwAAQAFAAEAAAAQAA0AAQAFAAIAAAARAAwAAQADAAEAAAARAA0AAQADAAIAAAASAAwAAQAEAAEAAAASAA0AAQAEAAIAAAATAAwAAQAFAAEAAAATAA0AAQAFAAIAAAAUAA0AAQADAAEAAAAUAA4AAQADAAIAAAAVAA0AAQAEAAEAAAAVAA4AAQAEAAIAAAAWAA0AAQAFAAEAAAAWAA4AAQAFAAIAAAAXAA0AAQADAAEAAAAXAA4AAQADAAIAAAAYAA0AAQAEAAEAAAAYAA4AAQAEAAIAAAAZAA0AAQAFAAEAAAAZAA4AAQAFAAIAAAAQAAgAAQABAAMAAAAQAAkAAQABAAQAAAARAAgAAQACAAMAAAARAAkAAQACAAQAAAAHAAcAAQABAAMAAAAHAAgAAQABAAQAAAAIAAcAAQACAAMAAAAIAAgAAQACAAQAAAAJAAcAAQAGAAMAAAAJAAgAAQAGAAQAAAAKAAcAAQAHAAMAAAAKAAgAAQAHAAQAAAASAAgAAQAGAAMAAAASAAkAAQAGAAQAAAATAAgAAQAHAAMAAAATAAkAAQAHAAQAAAA=")
 tile_set = ExtResource("2_0afsd")
 
-[node name="Player" parent="." unique_id=2130780701 instance=ExtResource("1_xijx7")]
+[node name="Camera2D" parent="." unique_id=86488589 instance=ExtResource("8_0nboi")]
+limit_left = 0
+limit_top = 0
+limit_bottom = 207
+
+[node name="Player" parent="." unique_id=2130780701 groups=["player"] instance=ExtResource("1_xijx7")]
 position = Vector2(17, 166)
+
+[node name="levelEnd" parent="." unique_id=1707192519 instance=ExtResource("10_3knxq")]
+position = Vector2(312, 117)
+next_level = "game"
+
+[node name="CollisionShape2D" parent="levelEnd" index="0" unique_id=271067765]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ercsu")
+
+[node name="decoration" type="TileMapLayer" parent="." unique_id=1497011469]
+tile_map_data = PackedByteArray("AAATAAYAAgAFAAEAAAA=")
+tile_set = ExtResource("11_ercsu")
+
+[editable path="levelEnd"]

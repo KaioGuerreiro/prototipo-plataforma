@@ -23,6 +23,17 @@ window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+player=""
+
+[layer_names]
+
+2d_physics/layer_1="terrain"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="level_end"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

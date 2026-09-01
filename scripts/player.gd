@@ -3,7 +3,8 @@ extends CharacterBody2D
 const QUEDA_LIMITE: float = 300.0
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
-@onready var anima: AnimatedSprite2D = $CollisionShape2D/AnimatedSprite2D
+@onready var anima: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func morrer() -> void:
 	# Reinicia a fase atual
